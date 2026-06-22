@@ -91,12 +91,12 @@ void renderRows(int startY, int endY,Vec3 CameraPos, Vec3 forward, Vec3 right, V
             GRRay New_Ray(CameraPos, dir);
             GRRay temp_ray = New_Ray;
             bool showDisk = true;
-            double stepsize = 0.2;
-            double maxSteps = 2750;
-
             double InnerDisk = 3.0;
             double OuterDisk = 10.0;
             double EscapeR = 100.0;
+            double stepsize = 1.0 * (New_Ray.r/EscapeR);
+            double maxSteps = 2750;
+
             bool painted = false;
             double k1[6], k2[6], k3[6], k4[6];
             New_Ray.syncCartesian();
