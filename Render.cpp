@@ -6,6 +6,7 @@
 #include <cmath>
 #include <algorithm>
 
+
 void setPixel(float x, float y, float r, float g, float b);
 
 // Making space scene behind
@@ -74,7 +75,7 @@ void render(Vec3 &CameraPos, double &yaw, double &pitch,int WIDTH, int HEIGHT, d
 
 void renderRows(int startY, int endY,Vec3 CameraPos, Vec3 forward, Vec3 right, Vec3 up, float aspect, int WIDTH, int HEIGHT, double r_s)
 {
-        for (int y_axis = startY; y_axis < endY; y_axis++)
+    for (int y_axis = startY; y_axis < endY; y_axis++)
     {
         for (int x_axis = 0; x_axis < WIDTH; x_axis++)
         {
@@ -95,7 +96,7 @@ void renderRows(int startY, int endY,Vec3 CameraPos, Vec3 forward, Vec3 right, V
             double OuterDisk = 10.0;
             double EscapeR = 100.0;
             double stepsize = 1.0 * (New_Ray.r/EscapeR);
-            double maxSteps = 2750;
+            double maxSteps = 2500;
 
             bool painted = false;
             double k1[6], k2[6], k3[6], k4[6];

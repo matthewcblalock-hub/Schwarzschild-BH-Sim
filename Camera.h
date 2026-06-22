@@ -10,7 +10,7 @@ class camera{
     bool firstClick = true;
 
     // Values that feel good (no real meaning):
-    float sensitivity = 0.00009f;
+    float sensitivity = 0.0009f;
     float speed = 15.0f;
 
     float limit = M_PI/2 - 0.01;

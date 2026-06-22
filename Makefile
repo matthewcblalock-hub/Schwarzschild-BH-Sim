@@ -1,7 +1,7 @@
 # Makefile for Schwarzschild-BH-Sim (macOS / arm64)
 
 CXX      := clang++
-CXXFLAGS := -std=c++17 -O2 -Wall -Iinclude -DGL_SILENCE_DEPRECATION
+CXXFLAGS := -std=c++17 -O3 -ffast-math -arch arm64 -Wall -Iinclude -DGL_SILENCE_DEPRECATION
 
 # GLFW static lib bundled in the repo
 LIBDIR   := include/lib-arm64
