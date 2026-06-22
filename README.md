@@ -3,7 +3,7 @@
  
 Here is a photo of it in action:
 
-<img width="890" height="601" alt="IMG_9216" src="https://github.com/user-attachments/assets/d4843320-ec9a-469a-a1b5-b14e989ea5d9" />
+<img width="1535" height="894" alt="Screenshot 2026-06-22 at 12 28 20 PM" src="https://github.com/user-attachments/assets/4e720076-8a2b-4112-9072-63a76b61c788" />
 
 
 All the Calculations:
