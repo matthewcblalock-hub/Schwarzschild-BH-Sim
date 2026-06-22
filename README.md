@@ -1,5 +1,7 @@
 # Schwarzschild-BH-Sim
  This is a sim showing the gravitational lensing of a Schwarzschild black hole, along with an accretion disk and potentially more.
+ I do not know how to code in metal so it runs incredibly slowly, if I did it would be a lot more fun to play around with but I cannot: The point
+ of the project was to derive the Geodesic equation and simulate a black hole using RK4, but it is not real time.
  
 Here is a photo of it in action:
 
