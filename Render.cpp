@@ -91,7 +91,7 @@ void renderRows(int startY, int endY,Vec3 CameraPos, Vec3 forward, Vec3 right, V
             GRRay New_Ray(CameraPos, dir);
             GRRay temp_ray = New_Ray;
             bool showDisk = true;
-            double stepsize = 0.4;
+            double stepsize = 0.2;
             double maxSteps = 2750;
 
             double InnerDisk = 3.0;

@@ -36,7 +36,7 @@ int main()
         return -1;
 
     glfwWindowHint(GLFW_COCOA_RETINA_FRAMEBUFFER, GLFW_FALSE);
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Physics_eng - v1: Basic Mechanics and Ray Tracing", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Schwarzschild Black Hole [Version 1]", NULL, NULL);
 
     if (!window)
     {
