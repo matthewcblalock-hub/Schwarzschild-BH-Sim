@@ -11,16 +11,16 @@ class camera{
 
     // Values that feel good (no real meaning):
     float sensitivity = 0.00009f;
-    float speed = 600.0f;
+    float speed = 5.0f;
 
     float limit = M_PI/2 - 0.01;
 
     public:
 
     // Initialize componets:
-    Vec3 cameraPos{0,3,-5};
+    Vec3 cameraPos{20,0,0};
     Vec3 velocity{0,0,0};
-    double yaw, pitch;
+    double yaw = -M_PI/2, pitch;
 
     void update(GLFWwindow* window, float deltaTime){
         Vec3 targetVelocity(0, 0, 0);

@@ -3,8 +3,8 @@
 #include "Camera.h"
 camera cam;
 
-int WIDTH = 1480;
-int HEIGHT = 860;
+int WIDTH = 640;
+int HEIGHT = 430;
 
 // Pixel buffer:
 std::vector<float> framebuffer(WIDTH * HEIGHT * 3, 0.0f);
@@ -26,6 +26,8 @@ void setPixel(float x, float y, float red, float green, float blue)
     framebuffer[index + 1] = green;
     framebuffer[index + 2] = blue;
 }
+
+void render(Vec3 &CameraPos, double &yaw, double &pitch,int WIDTH, int HEIGHT, double r_s);
 
 int main()
 {
@@ -60,7 +62,7 @@ int main()
 
         deltaTime = glfwGetTime() - lastTime; lastTime = glfwGetTime();
         cam.update(window, deltaTime);
-
+        render(cam.cameraPos, cam.yaw, cam.pitch, WIDTH, HEIGHT, 1.0);
         glDrawPixels(WIDTH, HEIGHT, GL_RGB, GL_FLOAT, framebuffer.data());
 
         glfwSwapBuffers(window);

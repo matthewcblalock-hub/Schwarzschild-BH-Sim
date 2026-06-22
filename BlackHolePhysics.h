@@ -37,9 +37,9 @@ struct GRRay
 
         dr = (dx) * (std::sin(theta) * std::cos(phi)) + (dy) * (std::sin(theta) * std::sin(phi)) + (dz) * (std::cos(theta));
         dtheta = ((dx) * (std::cos(theta) * std::cos(phi)) + (dy) * (std::cos(theta) * std::sin(phi)) - (dz) * (std::sin(theta))) / r;
-        dphi = ((-std::sin(phi)) * (dx) + (std::cos(phi) * (dy))) / r * (std::sin(theta));
+        dphi = ((-std::sin(phi)) * (dx) + (std::cos(phi) * (dy))) / (r * (std::sin(theta)));
 
-        double f = 1.0 - SagA.r_s/r;
+        double f = 1.0 - 1.0/r;
 
         double dt_dlambda = std::sqrt((dr*dr)/f + r*r*dtheta*dtheta + r*r*std::sin(theta)*std::sin(theta)*dphi*dphi) / f;
         E = f * dt_dlambda;
@@ -56,7 +56,6 @@ inline void GeodesicRHS(GRRay& ray, double rhs[6], double r_s)
 {
     double r = ray.r;
     double theta = ray.theta;
-    double phi = ray.phi;
     double dr = ray.dr;
     double dtheta = ray.dtheta;
     double dphi = ray.dphi;
