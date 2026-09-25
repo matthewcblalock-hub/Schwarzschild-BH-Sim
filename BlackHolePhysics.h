@@ -27,7 +27,7 @@ struct GRRay
     double dr, dtheta, dphi;
     double E;
 
-    GRRay(Vec3 pos,Vec3 dir) : x(pos.x), y(pos.y), z(pos.z)
+    GRRay(Vec3 pos,Vec3 dir, double r_s) : x(pos.x), y(pos.y), z(pos.z)
     {
         r = std::sqrt(x*x + y*y + z*z);
         theta = std::acos(z/r);
@@ -39,9 +39,9 @@ struct GRRay
         dtheta = ((dx) * (std::cos(theta) * std::cos(phi)) + (dy) * (std::cos(theta) * std::sin(phi)) - (dz) * (std::sin(theta))) / r;
         dphi = ((-std::sin(phi)) * (dx) + (std::cos(phi) * (dy))) / (r * (std::sin(theta)));
 
-        double f = 1.0 - 1.0/r;
+        double f = 1.0 - r_s/r;
 
-        double dt_dlambda = std::sqrt((dr*dr)/f + r*r*dtheta*dtheta + r*r*std::sin(theta)*std::sin(theta)*dphi*dphi) / f;
+        double dt_dlambda = std::sqrt((dr*dr/f + r*r*dtheta*dtheta + r*r*std::sin(theta)*std::sin(theta)*dphi*dphi) / f);
         E = f * dt_dlambda;
     }
     void syncCartesian()

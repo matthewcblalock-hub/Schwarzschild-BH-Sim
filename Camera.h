@@ -20,7 +20,7 @@ class camera{
     // Initialize componets:
     Vec3 cameraPos{20,0,0};
     Vec3 velocity{0,0,0};
-    double yaw = -M_PI/2, pitch;
+    double yaw = -M_PI/2, pitch = 0.0;
 
     void update(GLFWwindow* window, float deltaTime){
         Vec3 targetVelocity(0, 0, 0);
@@ -68,7 +68,7 @@ class camera{
         velocity.z += (targetVelocity.z - velocity.z) * t;
 
         if(cameraPos.y <= 0.1){
-            cameraPos.y += abs(velocity.y * deltaTime);
+            cameraPos.y += std::abs(velocity.y * deltaTime);
         }
 
         // Updating camera position with aspects to velocity and time:

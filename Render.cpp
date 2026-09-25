@@ -7,7 +7,7 @@
 #include <algorithm>
 
 
-void setPixel(float x, float y, float r, float g, float b);
+void setPixel(int x, int y, float r, float g, float b);
 
 // Making space scene behind
 // Psuedo-random 0 to 1, from two values:
@@ -89,14 +89,14 @@ void renderRows(int startY, int endY,Vec3 CameraPos, Vec3 forward, Vec3 right, V
 
             Vec3 dir = (forward + right * ndcX + up * ndcY).normalize();
 
-            GRRay New_Ray(CameraPos, dir);
+            GRRay New_Ray(CameraPos, dir, r_s);
             GRRay temp_ray = New_Ray;
             bool showDisk = true;
             double InnerDisk = 3.0;
             double OuterDisk = 10.0;
             double EscapeR = 100.0;
             double stepsize = 1.0 * (New_Ray.r/EscapeR);
-            double maxSteps = 2500;
+            int maxSteps = 2500;
 
             bool painted = false;
             double k1[6], k2[6], k3[6], k4[6];

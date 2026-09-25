@@ -19,7 +19,7 @@ void onResize(GLFWwindow*, int w, int h)
 }
 
 // Pixel Buffer: setting each pixel:
-void setPixel(float x, float y, float red, float green, float blue)
+void setPixel(int x, int y, float red, float green, float blue)
 {
     int index = (y * WIDTH + x) * 3;
     framebuffer[index + 0] = red;
