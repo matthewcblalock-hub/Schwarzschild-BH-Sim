@@ -10,17 +10,17 @@ class camera{
     bool firstClick = true;
 
     // Values that feel good (no real meaning):
-    float sensitivity = 0.0009f;
-    float speed = 15.0f;
+    float sensitivity = 0.00009f;
+    float speed = 10.0f;
 
     float limit = M_PI/2 - 0.01;
 
     public:
 
     // Initialize componets:
-    Vec3 cameraPos{20,0,0};
+    Vec3 cameraPos{0,3,-5};
     Vec3 velocity{0,0,0};
-    double yaw = -M_PI/2, pitch = 0.0;
+    double yaw, pitch;
 
     void update(GLFWwindow* window, float deltaTime){
         Vec3 targetVelocity(0, 0, 0);
@@ -52,12 +52,12 @@ class camera{
         }
 
          // Checking for clicks on user keyboard to be used for camera movement.
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {targetVelocity.x += sin(yaw) * speed * deltaTime; targetVelocity.z += cos(yaw) * speed * deltaTime;}
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {targetVelocity.x -= sin(yaw) * speed * deltaTime; targetVelocity.z -= cos(yaw) * speed * deltaTime;}
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {targetVelocity.x += cos(yaw) * speed * deltaTime; targetVelocity.z += -sin(yaw) * speed * deltaTime;}
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {targetVelocity.x -= cos(yaw) * speed * deltaTime; targetVelocity.z -= -sin(yaw) * speed * deltaTime;}
-        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) targetVelocity.y -= speed*deltaTime;
-        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) targetVelocity.y += speed*deltaTime;
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {targetVelocity.x += sin(yaw) * speed; targetVelocity.z += cos(yaw) * speed;}
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {targetVelocity.x -= sin(yaw) * speed; targetVelocity.z -= cos(yaw) * speed;}
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {targetVelocity.x += cos(yaw) * speed; targetVelocity.z += -sin(yaw) * speed;}
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {targetVelocity.x -= cos(yaw) * speed; targetVelocity.z -= -sin(yaw) * speed;}
+        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) targetVelocity.y -= speed;
+        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) targetVelocity.y += speed;
 
         // Calculating velocity for Camera to automatically slow down and adding smoothing:
         float smoothing = 1.0f;
@@ -68,7 +68,7 @@ class camera{
         velocity.z += (targetVelocity.z - velocity.z) * t;
 
         if(cameraPos.y <= 0.1){
-            cameraPos.y += std::abs(velocity.y * deltaTime);
+            cameraPos.y += abs(velocity.y * deltaTime);
         }
 
         // Updating camera position with aspects to velocity and time:
